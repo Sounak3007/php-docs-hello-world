@@ -142,11 +142,11 @@
 <option value="Female">Female</option>
 <option value="Others">Others</option>
 </select>
-<input type="text" name="phone" required title="please enter 10 digit number " pattern="[1-9]{1}[0-9]{9}" placeholder="Phone Number*">
-<input type="email" name="email" required id="email" title="Please enter valid email id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email"> 
+<input type="text" name="Phone" required title="please enter 10 digit number " pattern="[1-9]{1}[0-9]{9}" placeholder="Phone Number*">
+<input type="Email" name="Email" required id="Email" title="Please enter valid Email id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email"> 
 <input type="date" name="DOB" required id="DOB" placeholder="Dateofbirth* ">          
-<select name="Course" id="course" required>
-<option value="course-type" selected>Course type*</option>
+<select name="course" id="course" required>
+<option value="course-type" selected>course type*</option>
 <option value="short-courses">Short courses</option>
 <option value="featured-courses">Featured courses</option>
 <option value="undergraduate">Undergraduate</option>
@@ -182,21 +182,21 @@ catch(Exception $e){
          $name = $_POST['name'];
          $Address = $_POST['Address'];
    $Gender = $_POST['Gender'];
-   $phone = $_POST['phone'];
-   $email = $_POST['email'];
-   $Course = $_POST['Course'];
+   $Phone = $_POST['Phone'];
+   $Email = $_POST['Email'];
+   $course = $_POST['course'];
    $DOB = $_POST['DOB'];
          $date = date("Y/m/d H:i:s");
          // Insert data
-         $sql_insert = "INSERT INTO registration_table (name, Address,Gender,phone,email,Course,DOB,date)
+         $sql_insert = "INSERT INTO registration_table (name,Address,Gender,Phone,Email,course,DOB,date)
                     VALUES (?,?,?,?,?,?,?,?)";
          $stmt = $conn->prepare($sql_insert);
          $stmt->bindValue(1, $name);
    $stmt->bindValue(2, $Address);
          $stmt->bindValue(3, $Gender);
-         $stmt->bindValue(4, $phone);
-   $stmt->bindValue(5, $email);
-   $stmt->bindValue(6, $Course);
+         $stmt->bindValue(4, $Phone);
+   $stmt->bindValue(5, $Email);
+   $stmt->bindValue(6, $course);
    $stmt->bindValue(7, $DOB);
    $stmt->bindValue(8, $date);
          $stmt->execute();
@@ -218,16 +218,16 @@ catch(Exception $e){
    echo "<th>Gender</th>";
          echo "<th>Phone</th>";
    echo "<th>Email</th>";
-   echo "<th>Course</th>";
+   echo "<th>course</th>";
    echo "<th>DOB</th>";
          echo "<th>Date</th></tr>";
          foreach($registrants as $registrant) {
              echo "<tr><td>".$registrant['name']."</td>";
              echo "<td>".$registrant['Address']."</td>";
         echo "<td>".$registrant['Gender']."</td>";
-        echo "<td>".$registrant['phone']."</td>";
-        echo "<td>".$registrant['email']."</td>";
-        echo "<td>".$registrant['Course']."</td>";
+        echo "<td>".$registrant['Phone']."</td>";
+        echo "<td>".$registrant['Email']."</td>";
+        echo "<td>".$registrant['course']."</td>";
         echo "<td>".$registrant['DOB']."</td>";
              echo "<td>".$registrant['date']."</td></tr>";
          }
