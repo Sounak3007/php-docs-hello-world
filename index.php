@@ -164,10 +164,10 @@ date_default_timezone_set('asia/kolkata');
      // DB connection info
      //TODO: Update the values for $host, $user, $pwd, and $db
      //using the values you retrieved earlier from the Azure Portal.
-     $host = "tcp:sqlseversnk.database.windows.net,1433";
-$user = "Sounak";
-$pwd = "Snk123456789";
-$db = "registration";
+     $host = "tcp:testserver12423.database.windows.net,1433";
+$user = "sounak";
+$pwd = "Ensim@2607";
+$db = "REGISTRATION";
 // Connect to database.
 try {
      $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
